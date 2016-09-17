@@ -5,7 +5,7 @@ using System.Collections;
 public class LaserMovement : MonoBehaviour
 {
 	//the speed of the laser
-	public int speed;
+	public int invaderSpeed, manSpeed;
 	private PlayerFire playerFire;
 	private ManFire manFire;
 	private LaserType laserType;
@@ -13,13 +13,16 @@ public class LaserMovement : MonoBehaviour
 
 	void Start(){
 		IgnoreLaserCollisions();
+
 	}
 
 	private void IgnoreLaserCollisions(){
 		if(gameObject.name.StartsWith("Laser")){
 			GameObject playerLaser = GameObject.FindGameObjectWithTag("ManLaser");
+			Debug.Log("i want to ignore collisions");
 			if(playerLaser != null){
-				Physics2D.IgnoreCollision(playerLaser.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>());
+				Debug.Log("i will ignore collisions");
+				Physics2D.IgnoreCollision(playerLaser.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>(), true);
 			}
 		}
 	}
@@ -31,41 +34,35 @@ public class LaserMovement : MonoBehaviour
 
 		if(laserType == LaserType.Man){
 		
-			this.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * speed);
+			this.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * manSpeed);
 		}else{
 		
-			this.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * speed);
+			this.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * invaderSpeed);
 		}
 	}
 
 	private void OnTriggerEnter2D (Collider2D collision)
 	{
-
 		if(collision.gameObject.name.Equals("man") && laserType == LaserType.Man){
 			Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
 
-		}else if(collision.gameObject.name.StartsWith("Invader") && (laserType == LaserType.Invader || laserType == LaserType.Player)){
+		}else if(collision.gameObject.name.StartsWith("Invader") && (laserType == LaserType.Invader)){
 			Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
 
 		} else{
-		 
+
 		//stop the laser from moving
 		this.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		//destroy the laser
 		Destroy (gameObject, 0.08f);
 
-		if(laserType == LaserType.Player){
-			playerFire = GameObject.Find ("Player").GetComponent ("PlayerFire") as PlayerFire;
+		if(laserType == LaserType.Man){
+			playerFire = GameObject.Find ("man").GetComponent ("PlayerFire") as PlayerFire;
 			//in the FireLaser script, set laserActive to false
 			//so that we can fire another one
 			playerFire.setLaserActive (false);
 
-		}else if(laserType == LaserType.Man){
-			manFire = GameObject.Find ("man").GetComponent ("ManFire") as ManFire;
-			//in the FireLaser script, set laserActive to false
-			//so that we can fire another one
-			manFire.setLaserActive (false);
-		}
+			}
 		}
 	}
 
@@ -75,9 +72,11 @@ public class LaserMovement : MonoBehaviour
 
 	
 	private void OnCollisionEnter2D(Collision2D collision){
-		if (collision.gameObject.tag=="Laser"){
-			Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
-		}else if(collision.gameObject.name.Equals("man") && laserType == LaserType.Man){
+		//Debug.Log("Collision between " + collision.gameObject.name +" and " + name);
+		//if (collision.gameObject.name.StartsWith("ManLaser") || collision.gameObject.name.StartsWith("Laser")){
+		//	Debug.Log("IGNORING COLLISION BR0");
+		//	Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+		 if(collision.gameObject.name.Equals("man") && laserType == LaserType.Man){
 	
 
 			Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());

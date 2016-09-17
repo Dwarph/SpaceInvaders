@@ -25,17 +25,9 @@ public class PlayerMovement : MonoBehaviour
 	//check for appropriate player input
 	void checkForInput ()
 	{
-	
-		//if d is pressed, move right
-		if (Input.GetKey ("w")) {
-			movePlayer (move_speed, false);
-			//otherwise, if a is pressed, move left
-		}
+
 		if (Input.GetKey ("a")) {
 			movePlayer (-move_speed, true);
-		}
-		if (Input.GetKey ("s")) {
-			movePlayer (-move_speed, false);
 		}
 		if (Input.GetKey ("d")) {
 			movePlayer (move_speed, true);

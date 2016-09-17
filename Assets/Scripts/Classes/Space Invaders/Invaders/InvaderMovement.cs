@@ -128,22 +128,20 @@ public class InvaderMovement : MonoBehaviour
 		for (int i = 0; i< numberOfInvadersCol; i++) {
 			//if the invader is alive
 			if (invaders [i, j] != null) {
-				//if the invader isn't the player
-				if (!(i == 0 && j == 5)) {
-					//get its position
-					tempPos = invaders [i, j].transform.position; 
-					//if we're moving on the x axis
-					if (xAxis) {
-						//move on the x axis
-						tempPos.x += distance;
-						//if we're on the y axis
-					} else {
-						//move on the y axis
-						tempPos.y += distance;
-					}
-					//set the position
-					invaders [i, j].transform.position = tempPos;
+			//if the invader isn't the player
+				//get its position
+				tempPos = invaders [i, j].transform.position; 
+				//if we're moving on the x axis
+				if (xAxis) {
+					//move on the x axis
+					tempPos.x += distance;
+					//if we're on the y axis
+				} else {
+					//move on the y axis
+					tempPos.y += distance;
 				}
+				//set the position
+				invaders [i, j].transform.position = tempPos;
 			}
 		}
 	}
@@ -225,9 +223,7 @@ public class InvaderMovement : MonoBehaviour
 	{
 		for (int i = 0; i< numberOfInvadersCol; i++) {		
 			for (int j = 0; j< numberOfInvadersRow; j++) {
-				if (!(i == 0 && j == 5)) {
-					invaders [i, j] = GameObject.Find ("Invader" + i + "," + j);
-				}
+				invaders [i, j] = GameObject.Find ("Invader" + i + "," + j);
 			}
 		}
 	

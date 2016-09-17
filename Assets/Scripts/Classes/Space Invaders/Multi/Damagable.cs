@@ -54,6 +54,9 @@ public class Damagable : MonoBehaviour
 
 				
 				}
+			}else{
+				damage = other.gameObject.GetComponent ("Damage") as Damage;
+				takeDamage (damage.getDamage ());
 			}
 			//take away the laser's damage from the building's health
 						
