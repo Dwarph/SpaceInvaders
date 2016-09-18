@@ -26,6 +26,10 @@ public class Damagable : MonoBehaviour
 		}
 	}
 
+	public int GetMaxHP(){
+		return maxHP;
+	}
+
 	//called when something enters the trigger of the object this script is assigned to
 	void OnTriggerEnter2D (Collider2D other)
 	{

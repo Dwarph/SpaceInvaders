@@ -46,8 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Classes\Space Invaders\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\Classes\Space Invaders\InvaderDeath.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderFire.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderMovement.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderSetUp.cs" />
@@ -55,13 +53,19 @@
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Laser\LaserMovement.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Laser\LaserType.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Laser\TypeOfLaser.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\Lives.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\ManFire.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\ManMovement.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\Damagable.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\Damage.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\OutsideBorder.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\Other\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\Other\FinishLineGameOver.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Player\PlayerFire.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\HasScore.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\Score.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

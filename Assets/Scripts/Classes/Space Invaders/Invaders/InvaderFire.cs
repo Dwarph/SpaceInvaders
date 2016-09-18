@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class InvaderFire : MonoBehaviour {
 	FireLaser f;
+
+	//need this to access the numberOfAliveInvaders
+	private InvaderSetUp invSet;
+
 	// Use this for initialization
 	void Start () {
 		f = gameObject.GetComponent("FireLaser") as FireLaser;
-		InvokeRepeating ("randomFire", 1, 1);
+		invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
+		StartCoroutine(randomFire());
 	}
 
 	/*
@@ -17,18 +23,26 @@ public class InvaderFire : MonoBehaviour {
 
 
 
-	void randomFire(){
-		if(Random.Range( 0, 55 ) == 1){
-			f.fireLaser();
+	IEnumerator randomFire(){
+
+		while(true){
+
+			if(UnityEngine.Random.Range( 0, invSet.getNoOfInvaders() ) == 1){
+				f.fireLaser();
+			}
+		yield return new WaitForSeconds(1);
 		}
 	}
 
 	//called when the object is destroyed
 	void OnDestroy(){
 		InvaderSetUp invSet;
-		invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
-		invSet.setNoOfInvaders(-1);
+		try{
+			invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
+			invSet.setNoOfInvaders(-1);
+		}catch(NullReferenceException ex){
 
+		}
 	}
 
 }

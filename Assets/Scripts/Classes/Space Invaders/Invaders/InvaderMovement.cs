@@ -14,7 +14,7 @@ public class InvaderMovement : MonoBehaviour
 	private int numberOfInvadersRow, numberOfInvadersCol;
 
 	//we need a number of alive invaders 
-	private int numberOfAliveInvaders;
+	private int numberOfAliveInvaders, numberOfRowsMoved;
 
 	//the time between movements
 	private float waitTime;
@@ -26,11 +26,12 @@ public class InvaderMovement : MonoBehaviour
 	private bool moveR;
 
 	//need this to access the numberOfAliveInvaders
-	InvaderSetUp invSet;
+	private InvaderSetUp invSet;
 
 	//Called at the start of the game - used for initialisation
 	void Start ()
 	{
+		numberOfRowsMoved = 1;
 		moveR = false;
 		numberOfInvadersCol = 5;
 		numberOfInvadersRow = 11;
@@ -38,6 +39,7 @@ public class InvaderMovement : MonoBehaviour
 		maxRightCol = numberOfInvadersRow - 1;
 		invaders = new GameObject[numberOfInvadersCol, numberOfInvadersRow];
 		invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
+		numberOfAliveInvaders = invSet.getNoOfInvaders();
 		getAllInvaders ();
 
 		//repeatedly move forever
@@ -45,9 +47,13 @@ public class InvaderMovement : MonoBehaviour
 	}
 
 	IEnumerator repeatMove(){
-		while (true){
+		while (numberOfAliveInvaders!=0){
 		numberOfAliveInvaders = invSet.getNoOfInvaders();
-		waitTime = 0.018f * (float)numberOfAliveInvaders ;
+			if(numberOfAliveInvaders==0){
+				Destroy(this);
+			}
+
+		waitTime= (float) (14 -numberOfRowsMoved)*1.5f /(float)(75 - numberOfAliveInvaders);
 
 		moveInvaders();
 		yield return new WaitForSeconds(waitTime);
@@ -83,6 +89,7 @@ public class InvaderMovement : MonoBehaviour
 			for (int j = maxLeftCol; j< numberOfInvadersRow; j++) {
 				move (false, -3.5f, j);
 			}
+			setNoOfRowsMoved(1);
 			//break out of the method
 			return;
 		}
@@ -105,6 +112,7 @@ public class InvaderMovement : MonoBehaviour
 			for (int j = maxRightCol; j >= 0; j--) {
 				move (false, -3.5f, j);
 			}
+			setNoOfRowsMoved(1);
 			//break out of the method
 			return;
 		}
@@ -235,5 +243,9 @@ public class InvaderMovement : MonoBehaviour
 
 	public GameObject getMaxRightInvader(){
 		return maxRightInvader;
+	}
+
+	void setNoOfRowsMoved(int newColumn){
+		numberOfRowsMoved += newColumn;
 	}
 }
