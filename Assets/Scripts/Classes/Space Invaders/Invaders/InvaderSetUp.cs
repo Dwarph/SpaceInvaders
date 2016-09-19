@@ -8,15 +8,17 @@ public class InvaderSetUp : MonoBehaviour
 	public GameObject[] invaderPrefabs;
 	private GameObject[,] invaders;
 	private int numberOfInvadersRow, numberOfInvadersCol;
-	private int noOfInvaders;
+	private int noOfInvaders, manHPLeft;
 	private Damagable manHP;
 	private GameOver gameOver;
+
 
 	//this is called before start
 	void Awake ()
 	{
 
 		//set the number of rows and columns of invaders
+		manHPLeft = 3;
 		noOfInvaders=0;
 		numberOfInvadersCol = 5;
 		numberOfInvadersRow = 11;
@@ -28,9 +30,12 @@ public class InvaderSetUp : MonoBehaviour
 
 	}
 
+
+
 	void Update(){
-		if(manHP.GetMaxHP() == 0){
-			destroyAllInvaders();
+		manHPLeft = manHP.GetMaxHP();
+		if(manHPLeft == 0){
+			destroyAllInvaders(true, false);
 		}
 	}
 
@@ -61,7 +66,7 @@ public class InvaderSetUp : MonoBehaviour
 	}
 
 
-	public void destroyAllInvaders(){
+	public void destroyAllInvaders(bool playerDeath, bool playerWin){
 		GameObject[] lasers = GameObject.FindGameObjectsWithTag("Laser");
 		foreach (GameObject laser in lasers){
 			Destroy(laser);
@@ -87,7 +92,7 @@ public class InvaderSetUp : MonoBehaviour
 			}
 		}
 
-		gameOver.isGameOver(true);
+		gameOver.isGameOver(true, playerDeath, playerWin);
 	}
 	public int getNoOfInvaders(){
 		return noOfInvaders;
@@ -95,5 +100,9 @@ public class InvaderSetUp : MonoBehaviour
 
 	public void setNoOfInvaders(int invaderNew){
 		noOfInvaders += invaderNew;
+
+		if(noOfInvaders ==0){
+			destroyAllInvaders(true, true);
+		}
 	}
 }

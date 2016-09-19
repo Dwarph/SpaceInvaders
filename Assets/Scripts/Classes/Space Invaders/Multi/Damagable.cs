@@ -5,6 +5,11 @@ using System.Collections;
 public class Damagable : MonoBehaviour
 {
 
+	private PauseGame pause;
+	//sound variables
+	public AudioClip deadFX;
+	AudioSource audioS;
+
 	//we need the object to have a number of health points
 	public int maxHP;
 
@@ -15,6 +20,11 @@ public class Damagable : MonoBehaviour
 	//we need somewhere to store the damage it will take
 	private Damage damage;
 
+
+	void Start(){
+		audioS = GetComponent<AudioSource>();
+		pause = GameObject.Find("Space Invader Start").GetComponent("PauseGame") as PauseGame;
+	}
 	//this class takes damage away from the object
 	//if the health falls below 1, the object is destroyed
 	public void takeDamage (int damage)
@@ -45,18 +55,20 @@ public class Damagable : MonoBehaviour
 					damage = other.gameObject.GetComponent ("Damage") as Damage;
 					Debug.Log(gameObject.name + "has been hit by a laser of type " + typeOfLaser.getTypeOfLaser().ToString());
 					takeDamage (damage.getDamage ());
-
-
 				}
 			}
 			else if(gameObject.name.Equals("man")){
 
 				if(typeOfLaser.getTypeOfLaser() != LaserType.Man){
-					damage = other.gameObject.GetComponent ("Damage") as Damage;
-					
-					takeDamage (damage.getDamage ());
 
-				
+
+
+					damage = other.gameObject.GetComponent ("Damage") as Damage;
+					audioS.PlayOneShot(deadFX, 0.8F);
+					takeDamage (damage.getDamage ());
+					Destroy(other.gameObject);
+
+					StartCoroutine(pause.Pause(1, true));
 				}
 			}else{
 				damage = other.gameObject.GetComponent ("Damage") as Damage;
@@ -66,4 +78,10 @@ public class Damagable : MonoBehaviour
 						
 		}
 	}
+
+
+		
+
+
+
 }

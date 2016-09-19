@@ -8,6 +8,8 @@ public class InvaderFire : MonoBehaviour {
 	//need this to access the numberOfAliveInvaders
 	private InvaderSetUp invSet;
 
+
+
 	// Use this for initialization
 	void Start () {
 		f = gameObject.GetComponent("FireLaser") as FireLaser;
@@ -27,7 +29,7 @@ public class InvaderFire : MonoBehaviour {
 
 		while(true){
 
-			if(UnityEngine.Random.Range( 0, invSet.getNoOfInvaders() ) == 1){
+			if(UnityEngine.Random.Range( 0, invSet.getNoOfInvaders() ) == 0){
 				f.fireLaser();
 			}
 		yield return new WaitForSeconds(1);

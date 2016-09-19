@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class Score : MonoBehaviour {
@@ -14,7 +15,10 @@ public class Score : MonoBehaviour {
 
 	public void UpdateTotalScore(int scoreAddition){
 		totalScore += scoreAddition;
-		scoreText.text = "" + totalScore;
+		try{
+			scoreText.text = "" + totalScore;
+		}catch(MissingReferenceException m){
+		}
 	}
 
 	public int getTotalScore(){

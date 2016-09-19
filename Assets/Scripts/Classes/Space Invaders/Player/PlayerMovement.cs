@@ -7,11 +7,12 @@ public class PlayerMovement : MonoBehaviour
 
 	//editable move speed
 	public float move_speed;
-
+	private bool move;
 	// Use this for initialization
 	void Start ()
 	{
-	
+		Debug.Log("initial transform: "  + transform.position.x +", "+ transform.position.y);
+		move = true;
 	}
 	
 	// Update is called once per frame
@@ -25,12 +26,13 @@ public class PlayerMovement : MonoBehaviour
 	//check for appropriate player input
 	void checkForInput ()
 	{
-
-		if (Input.GetKey ("a")) {
-			movePlayer (-move_speed, true);
-		}
-		if (Input.GetKey ("d")) {
-			movePlayer (move_speed, true);
+	if(move){
+			if (Input.GetKey ("a")) {
+				movePlayer (-move_speed, true);
+			}
+			if (Input.GetKey ("d")) {
+				movePlayer (move_speed, true);
+			}
 		}
 	}
 
@@ -46,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
 			tempPos.y = tempPos.y + xMove;
 		}
 		this.transform.position = tempPos;
+	}
+
+	public void setMove(bool newMove){
+		move = newMove;
 	}
 	
 }

@@ -23,7 +23,7 @@ public class FinishLineGameOver : MonoBehaviour {
 			try{
 				invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
 				invSet.setNoOfInvaders(-(invSet.getNoOfInvaders()));
-				invSet.destroyAllInvaders();
+				invSet.destroyAllInvaders(true, false);
 				Debug.Log(invSet.getNoOfInvaders());
 			}catch(NullReferenceException ex){
 				

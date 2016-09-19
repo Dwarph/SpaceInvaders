@@ -16,8 +16,8 @@ public class Lives : MonoBehaviour {
 		checkLives();
 	}
 
-	private void checkLives(){
 
+	private void checkLives(){
 		switch(d.GetMaxHP()){
 		case 2:
 			Destroy(lives[2]);
@@ -28,11 +28,13 @@ public class Lives : MonoBehaviour {
 		case 0:
 			Destroy(lives[0]);
 			break;
+
 		}
 	}
 
 	void OnDestroy(){
 		Destroy(lives[0]);
+
 	}
 
 }

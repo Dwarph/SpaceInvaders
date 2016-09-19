@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\OutsideBorder.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Other\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Other\FinishLineGameOver.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\Other\PauseGame.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Player\PlayerFire.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\GameOver.cs" />

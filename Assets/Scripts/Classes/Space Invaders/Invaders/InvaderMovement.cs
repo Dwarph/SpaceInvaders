@@ -28,9 +28,16 @@ public class InvaderMovement : MonoBehaviour
 	//need this to access the numberOfAliveInvaders
 	private InvaderSetUp invSet;
 
+	public AudioClip[] movementFXs;
+	AudioSource audioS;
+	private int audioNum;
+
+
 	//Called at the start of the game - used for initialisation
 	void Start ()
 	{
+		audioNum = 0;
+		audioS = GetComponent<AudioSource>();
 		numberOfRowsMoved = 1;
 		moveR = false;
 		numberOfInvadersCol = 5;
@@ -56,6 +63,7 @@ public class InvaderMovement : MonoBehaviour
 		waitTime= (float) (14 -numberOfRowsMoved)*1.5f /(float)(75 - numberOfAliveInvaders);
 
 		moveInvaders();
+		playSound();
 		yield return new WaitForSeconds(waitTime);
 		}
 	}
@@ -71,11 +79,24 @@ public class InvaderMovement : MonoBehaviour
 
 		//if we are moving right, move right
 		if (moveR) {
-			moveRight ();
+			if(maxRightInvader!=null){
+				moveRight ();
+			}
 			//otherwise move left
 		} else {
-			moveLeft ();
+			if(maxLeftInvader!=null){
+				moveLeft ();
+			}
 		}
+	}
+
+	void playSound(){
+		if(audioNum==4){
+			audioNum = 0;
+		}
+		audioS.PlayOneShot(movementFXs[audioNum], 0.9F);
+
+		audioNum++;
 	}
 
 	//this method moves all invaders left

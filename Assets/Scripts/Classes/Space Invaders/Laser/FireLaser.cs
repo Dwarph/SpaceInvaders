@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class FireLaser : MonoBehaviour {
 
 	//the laser's object
 	public GameObject laserPrefab;
+	public AudioClip fireFX;
+	AudioSource audioS;
 	LaserMovement ls;
 	TypeOfLaser laserType;
 
+	void Start(){
+		audioS = GetComponent<AudioSource>();
+	}
 
 	public void fireLaser ()
 	{
@@ -29,7 +35,11 @@ public class FireLaser : MonoBehaviour {
 
 		laserType.setTypeOfLaser(getLaserType());
 		ls.setLaserType(laserType.getTypeOfLaser());
-
+		try{
+			audioS.PlayOneShot(fireFX, 0.7F);
+		}catch(NullReferenceException e){
+			Debug.Log ("This would have errored");
+		}
 		ls.startMoving();
 	
 	}
