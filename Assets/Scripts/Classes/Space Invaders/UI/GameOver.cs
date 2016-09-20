@@ -9,15 +9,16 @@ public class GameOver : MonoBehaviour {
 	AudioSource audioS;
 	bool playerWins;
 
-	UnityEngine.UI.Text GameOverText, GameOverScore; 
+	UnityEngine.UI.Text gameOverText, gameOverScore, replayText; 
 
 	// Use this for initialization
 	void Start () {
 		audioS = GetComponent<AudioSource>();
 		gameOver = false;
 		s = GameObject.Find("Score Number").GetComponent("Score") as Score;
-		GameOverText = GetComponent<UnityEngine.UI.Text>();
-		GameOverScore = GameObject.Find("GameOver Score").GetComponent<UnityEngine.UI.Text>();
+		gameOverText = GetComponent<UnityEngine.UI.Text>();
+		gameOverScore = GameObject.Find("GameOver Score").GetComponent<UnityEngine.UI.Text>();
+		replayText = GameObject.Find("Replay Text").GetComponent<UnityEngine.UI.Text>();
 
 	}
 
@@ -26,7 +27,9 @@ public class GameOver : MonoBehaviour {
 	void Update () {
 		if(gameOver){
 			displayGameOverText();
+			checkForAnyKey();
 		}
+
 	}
 
 	private void displayGameOverText(){
@@ -41,8 +44,10 @@ public class GameOver : MonoBehaviour {
 					"Your Score is:";
 		}
 
-		GameOverText.text = finalText;
-		GameOverScore.text = ""+totalScore;
+		replayText.text = "Press any key to replay.";
+
+		gameOverText.text = finalText;
+		gameOverScore.text = ""+totalScore;
 	}
 
 	public void isGameOver(bool gO, bool playerDeath, bool win){
@@ -52,4 +57,12 @@ public class GameOver : MonoBehaviour {
 			audioS.PlayOneShot(deadFX, 0.8F);
 		}
 	}
+
+	void checkForAnyKey(){
+		if (Input.anyKeyDown){
+			Time.timeScale = 1;
+			Application.LoadLevel(Application.loadedLevel);
+		}	
+	}
+
 }

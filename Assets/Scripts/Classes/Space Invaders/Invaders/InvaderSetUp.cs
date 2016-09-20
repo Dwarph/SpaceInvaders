@@ -11,12 +11,13 @@ public class InvaderSetUp : MonoBehaviour
 	private int noOfInvaders, manHPLeft;
 	private Damagable manHP;
 	private GameOver gameOver;
+	private WaitForTime wait;
 
 
 	//this is called before start
 	void Awake ()
 	{
-
+		wait = new WaitForTime();
 		//set the number of rows and columns of invaders
 		manHPLeft = 3;
 		noOfInvaders=0;
@@ -35,6 +36,7 @@ public class InvaderSetUp : MonoBehaviour
 	void Update(){
 		manHPLeft = manHP.GetMaxHP();
 		if(manHPLeft == 0){
+			StartCoroutine(wait.waitFor(0.1F));
 			destroyAllInvaders(true, false);
 		}
 	}
@@ -51,7 +53,23 @@ public class InvaderSetUp : MonoBehaviour
 	
 			for (int j = 0; j< numberOfInvadersRow; j++) {
 				//add an invader
-				invader = Instantiate (invaderPrefabs [0], tempPos, transform.rotation) as GameObject;
+				Debug.Log(""+i);
+				switch(i){
+					case 0:
+						invader = Instantiate (invaderPrefabs [2], tempPos, transform.rotation) as GameObject;
+						break;
+					case 1:
+					case 2:
+						invader = Instantiate (invaderPrefabs [1], tempPos, transform.rotation) as GameObject;
+						break;
+					case 3:
+					case 4:
+						invader = Instantiate (invaderPrefabs [0], tempPos, transform.rotation) as GameObject;
+						break;
+				default:
+						invader = Instantiate (invaderPrefabs [0], tempPos, transform.rotation) as GameObject;
+					break;
+				}
 				invader.gameObject.name = "Invader" + i + "," + j;
 				invader.transform.parent = this.gameObject.transform;
 				setNoOfInvaders(1);
@@ -102,7 +120,7 @@ public class InvaderSetUp : MonoBehaviour
 		noOfInvaders += invaderNew;
 
 		if(noOfInvaders ==0){
-			destroyAllInvaders(true, true);
+			gameOver.isGameOver(true, true, true);
 		}
 	}
 }

@@ -32,7 +32,7 @@ public class InvaderFire : MonoBehaviour {
 			if(UnityEngine.Random.Range( 0, invSet.getNoOfInvaders() ) == 0){
 				f.fireLaser();
 			}
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(0.5f);
 		}
 	}
 

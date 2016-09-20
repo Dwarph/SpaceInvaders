@@ -108,7 +108,8 @@ public class InvaderMovement : MonoBehaviour
 			moveR = true;
 			//move down
 			for (int j = maxLeftCol; j< numberOfInvadersRow; j++) {
-				move (false, -3.5f, j);
+				move (false, -2f, j);
+				//1.6
 			}
 			setNoOfRowsMoved(1);
 			//break out of the method
@@ -131,7 +132,7 @@ public class InvaderMovement : MonoBehaviour
 			moveR = false;	
 			//move down
 			for (int j = maxRightCol; j >= 0; j--) {
-				move (false, -3.5f, j);
+				move (false, -2f, j);
 			}
 			setNoOfRowsMoved(1);
 			//break out of the method
