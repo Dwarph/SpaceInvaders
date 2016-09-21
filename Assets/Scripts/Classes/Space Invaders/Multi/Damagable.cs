@@ -20,8 +20,10 @@ public class Damagable : MonoBehaviour
 	//we need somewhere to store the damage it will take
 	private Damage damage;
 
+	Animator anim;
 
 	void Start(){
+		anim = GetComponent<Animator>();
 		audioS = GetComponent<AudioSource>();
 		pause = GameObject.Find("Space Invader Start").GetComponent("PauseGame") as PauseGame;
 	}
@@ -67,8 +69,9 @@ public class Damagable : MonoBehaviour
 					audioS.PlayOneShot(deadFX, 0.8F);
 					takeDamage (damage.getDamage ());
 					Destroy(other.gameObject);
-
+					anim.SetBool("isDead", true);
 					StartCoroutine(pause.Pause(1, true));
+					anim.SetBool("isDead", false);
 				}
 			}else{
 				damage = other.gameObject.GetComponent ("Damage") as Damage;

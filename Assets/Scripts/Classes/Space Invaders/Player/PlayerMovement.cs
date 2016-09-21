@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	//editable move speed
 	public float move_speed;
 	private bool move;
+
 	// Use this for initialization
 	void Start ()
 	{

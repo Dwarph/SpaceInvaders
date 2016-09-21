@@ -23,7 +23,7 @@ public class InvaderMovement : MonoBehaviour
 	private GameObject[,] invaders;
 
 	//we need to know which direction we are moving in
-	private bool moveR;
+	private bool moveR, open;
 
 	//need this to access the numberOfAliveInvaders
 	private InvaderSetUp invSet;
@@ -31,11 +31,12 @@ public class InvaderMovement : MonoBehaviour
 	public AudioClip[] movementFXs;
 	AudioSource audioS;
 	private int audioNum;
-
+	private InvaderAnimation invAnim;
 
 	//Called at the start of the game - used for initialisation
 	void Start ()
 	{
+		open = false;
 		audioNum = 0;
 		audioS = GetComponent<AudioSource>();
 		numberOfRowsMoved = 1;
@@ -63,6 +64,7 @@ public class InvaderMovement : MonoBehaviour
 		waitTime= (float) (14 -numberOfRowsMoved)*1.5f /(float)(75 - numberOfAliveInvaders);
 
 		moveInvaders();
+		open = !open;
 		playSound();
 		yield return new WaitForSeconds(waitTime);
 		}
@@ -173,7 +175,9 @@ public class InvaderMovement : MonoBehaviour
 				//set the position
 				invaders [i, j].transform.position = tempPos;
 			}
+			changeSprites(i, j);
 		}
+
 	}
 
 	//this finds the max invader
@@ -227,7 +231,7 @@ public class InvaderMovement : MonoBehaviour
 
 		}
 	}
-
+	//0fff00ff
 	//find the max column
 	//takes in an Integer
 	//Int: The current Column we're on
@@ -267,7 +271,14 @@ public class InvaderMovement : MonoBehaviour
 		return maxRightInvader;
 	}
 
-	void setNoOfRowsMoved(int newColumn){
+	private void setNoOfRowsMoved(int newColumn){
 		numberOfRowsMoved += newColumn;
+	}
+
+	private void changeSprites(int i, int j){
+		if(invaders[i,j] != null){
+			invAnim = invaders [i, j].GetComponent("InvaderAnimation") as InvaderAnimation;
+			invAnim.isOpen(open);
+		}
 	}
 }
