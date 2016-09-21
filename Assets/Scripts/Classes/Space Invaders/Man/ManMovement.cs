@@ -47,17 +47,3 @@ public class ManMovement : MonoBehaviour {
 	}
 
 }
-
-
-/*
-	 * IF Moving Left & Reached End of Row
-	 * 		MOVE RIGHT
-	 * 
-	 * IF Moving Right & Reached End of Row
-	 * 		MOVE LEFT
-	 * 
-	 * IF !LaserActive
-	 * 				FIRE LASER			
-	 * 	
-	 * 
-	 */
