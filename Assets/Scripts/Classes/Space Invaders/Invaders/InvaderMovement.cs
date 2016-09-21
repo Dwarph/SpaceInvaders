@@ -96,7 +96,7 @@ public class InvaderMovement : MonoBehaviour
 		if(audioNum==4){
 			audioNum = 0;
 		}
-		audioS.PlayOneShot(movementFXs[audioNum], 0.9F);
+		audioS.PlayOneShot(movementFXs[audioNum], 0.4F);
 
 		audioNum++;
 	}

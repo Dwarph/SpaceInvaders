@@ -8,11 +8,13 @@ public class GameOver : MonoBehaviour {
 	public AudioClip deadFX;
 	AudioSource audioS;
 	bool playerWins;
+	private WaitForTime wait;
 
 	UnityEngine.UI.Text gameOverText, gameOverScore, replayText; 
 
 	// Use this for initialization
 	void Start () {
+		wait = GameObject.Find("Space Invader Start").GetComponent("WaitForTime") as WaitForTime;
 		audioS = GetComponent<AudioSource>();
 		gameOver = false;
 		s = GameObject.Find("Score Number").GetComponent("Score") as Score;
@@ -54,7 +56,9 @@ public class GameOver : MonoBehaviour {
 		gameOver = gO;
 		playerWins = win;
 		if(playerDeath){
-			audioS.PlayOneShot(deadFX, 0.8F);
+			audioS.PlayOneShot(deadFX, 0.35F);
+
+		//	GameObject.Find("Main Camera").GetComponent<AudioListener>().enabled = false;
 		}
 	}
 

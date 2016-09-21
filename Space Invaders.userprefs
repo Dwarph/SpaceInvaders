@@ -1,14 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Classes\Space Invaders\Multi\Damagable.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Classes\Space Invaders\Other\PauseGame.cs">
     <Files>
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderMovement.cs" Line="246" Column="34" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Other\DamagedShieldsSprites.cs" Line="24" Column="35" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Multi\Damagable.cs" Line="50" Column="39" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderSetUp.cs" Line="8" Column="36" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderAnimation.cs" Line="27" Column="35" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Man\ManMovement.cs" Line="9" Column="2" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Player\PlayerMovement.cs" Line="16" Column="15" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Man\StopMan.cs" Line="21" Column="27" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Other\PauseGame.cs" Line="49" Column="39" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderAnimation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Multi\Damagable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\UI\GameOver.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Player\PlayerMovement.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

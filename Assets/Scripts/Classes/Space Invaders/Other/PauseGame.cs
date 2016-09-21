@@ -2,12 +2,18 @@
 using System.Collections;
 
 public class PauseGame : MonoBehaviour {
-
-	private PlayerMovement p;
+	
+	private GameObject man;
+	public Sprite[] sprites;
+	private SpriteRenderer spriteRend;
+	PlayerMovement playerMove;
 
 	// Use this for initialization
 	void Start () {
-		p = GameObject.Find("man").GetComponent("PlayerMovement") as PlayerMovement;
+		playerMove = GameObject.Find("man").GetComponent("PlayerMovement") as PlayerMovement;
+		man = GameObject.Find("man");
+		spriteRend = man.GetComponent<SpriteRenderer>();
+	
 
 	}
 	
@@ -17,29 +23,42 @@ public class PauseGame : MonoBehaviour {
 	}
 
 	void setMove(bool mov){
-		p.setMove(false);
+		playerMove.setMove(false);
 	}
 
 	public IEnumerator Pause(float p, bool movePlayer)
 	{
-		PlayerMovement playerMove = GameObject.Find("man").GetComponent("PlayerMovement") as PlayerMovement;
+		float prevMoveSpeed;
+		if(movePlayer){
+			spriteRend.sprite = sprites[0];
+			man.transform.localScale = new Vector3( 31f, 31f, 1f);
+			playerMove.movePlayer(0.9f, false);
+		}
+
 		Debug.Log("pausing game");
-		playerMove.setMove(false);
+
+		prevMoveSpeed = playerMove.move_speed;
+		playerMove.move_speed =0;
 		Time.timeScale = 0f;
 		float pauseEndTime = Time.realtimeSinceStartup + p;
 		while (Time.realtimeSinceStartup < pauseEndTime)
 		{
 			yield return 0;
 		}
-		playerMove.setMove(true);
+
+		playerMove.move_speed =prevMoveSpeed;
 		Time.timeScale = 1;
+
 		if(movePlayer){
 			movePlayerToStart();
+			spriteRend.sprite = sprites[1];
+			man.transform.localScale = new Vector3( 10f, 10f, 1f);
+
 		}
 	}
 
 	private void movePlayerToStart(){
-		GameObject man = GameObject.Find("man");
+
 		Vector3 tempPos = man.transform.position; 
 		tempPos.x = -160.4F;
 		tempPos.y = 1.598F;

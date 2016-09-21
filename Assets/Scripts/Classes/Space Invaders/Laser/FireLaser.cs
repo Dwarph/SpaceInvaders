@@ -36,7 +36,7 @@ public class FireLaser : MonoBehaviour {
 		laserType.setTypeOfLaser(getLaserType());
 		ls.setLaserType(laserType.getTypeOfLaser());
 		try{
-			audioS.PlayOneShot(fireFX, 0.7F);
+			audioS.PlayOneShot(fireFX, 0.3F);
 		}catch(NullReferenceException e){
 			Debug.Log ("This would have errored");
 		}

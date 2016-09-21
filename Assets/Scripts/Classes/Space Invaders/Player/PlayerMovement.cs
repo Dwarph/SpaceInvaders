@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 	//this method moves the player using transform
 	//I could use physics to push the player but simply transforming it in one direction feels snappier.
 	//it takes the amount we want to move by
-	void movePlayer (float xMove, bool xAxis)
+	public void movePlayer (float xMove, bool xAxis)
 	{
 		Vector3 tempPos = transform.position; 
 		if (xAxis) {
@@ -53,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
 
 	public void setMove(bool newMove){
 		move = newMove;
+	}
+
+	public bool getMove(){
+		return move;
 	}
 	
 }

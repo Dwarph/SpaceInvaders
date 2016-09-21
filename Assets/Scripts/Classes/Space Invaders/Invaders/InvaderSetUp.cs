@@ -12,12 +12,13 @@ public class InvaderSetUp : MonoBehaviour
 	private Damagable manHP;
 	private GameOver gameOver;
 	private WaitForTime wait;
-
+	private AudioSource[] allAudioSources;
+	
 
 	//this is called before start
 	void Awake ()
 	{
-		wait = new WaitForTime();
+		wait = GameObject.Find("Space Invader Start").GetComponent("WaitForTime") as WaitForTime;
 		//set the number of rows and columns of invaders
 		manHPLeft = 3;
 		noOfInvaders=0;

@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\Lives.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\ManFire.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\ManMovement.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\Man\StopMan.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\Damagable.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\Damage.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Multi\OutsideBorder.cs" />
