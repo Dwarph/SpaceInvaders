@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//handle's the man's lives
+using UnityEngine;
 using System.Collections;
 
 public class Lives : MonoBehaviour {
@@ -16,7 +17,7 @@ public class Lives : MonoBehaviour {
 		checkLives();
 	}
 
-
+	//depending on the amount of lives left, destroy the life shown for it
 	private void checkLives(){
 		switch(d.GetMaxHP()){
 		case 2:
@@ -32,6 +33,7 @@ public class Lives : MonoBehaviour {
 		}
 	}
 
+	//when this is destroyed, destroy the final lives.
 	void OnDestroy(){
 		Destroy(lives[0]);
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+//this class controls the shield sprites
 public class DamagedShieldsSprites : MonoBehaviour {
 
 	private Damagable damagable;
@@ -18,6 +18,7 @@ public class DamagedShieldsSprites : MonoBehaviour {
 		checkForSpriteChange();
 	}
 
+	//shield sprites have 3 states, depending on the amount of damage taken
 	private void checkForSpriteChange(){
 		switch(damagable.GetMaxHP()){
 		case 3:

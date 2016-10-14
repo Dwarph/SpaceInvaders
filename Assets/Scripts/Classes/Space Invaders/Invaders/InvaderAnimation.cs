@@ -1,13 +1,19 @@
-﻿using UnityEngine;
+﻿//This Class handles the invader's sprite swapping.
+
+using UnityEngine;
 using System.Collections;
 
 public class InvaderAnimation : MonoBehaviour {
+
+	//We need the sprites we're going to swap, 
+	//where we're going to use them
+	//and which state the invader is currently in.
 
 	public Sprite[] sprites;
 	private SpriteRenderer spriteRend;
 	private bool open;
 
-	// Use this for initialization
+	// Used for initialisation.
 	void Start () {
 		spriteRend = GetComponent<SpriteRenderer>();
 		open = false;
@@ -18,10 +24,12 @@ public class InvaderAnimation : MonoBehaviour {
 		checkForSpriteChange();
 	}
 
+	//sets open
 	public void isOpen(bool isOpen){
 		open = isOpen;
 	}
 
+	//changes sprite if needed
 	private void checkForSpriteChange(){
 		if(open){
 			spriteRend.sprite = sprites[0];

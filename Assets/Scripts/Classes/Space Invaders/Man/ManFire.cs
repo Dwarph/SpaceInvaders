@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//this class fires a laser as soon as the previous laser is destroyed
+//it is used in invader and not Space Invaders.
+using UnityEngine;
 using System.Collections;
 
 public class ManFire : MonoBehaviour {

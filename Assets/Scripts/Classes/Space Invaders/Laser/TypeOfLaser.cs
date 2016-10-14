@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿//setters and getters for types of lasers
+using UnityEngine;
 using System.Collections;
 
 public class TypeOfLaser : MonoBehaviour {
 	LaserType lt;
-
 
 	public void setTypeOfLaser(LaserType newType){
 		lt = newType;

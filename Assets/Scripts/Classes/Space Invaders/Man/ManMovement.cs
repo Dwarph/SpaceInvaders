@@ -1,7 +1,12 @@
-﻿using UnityEngine;
+﻿//this class is mainly for making the man move without any input
+//it is used in invader and not Space Invaders
+using UnityEngine;
 using System.Collections;
 
 public class ManMovement : MonoBehaviour {
+
+	//unsophisticated movement - could be improved upon to dodge lasers
+	//currently moves on the x axis until it reaches the last column on invaders
 
 	bool movingLeft;
 	GameObject maxLeftInvader, maxRightInvader;
@@ -15,14 +20,19 @@ public class ManMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//gets the max left and right invaders
 		maxLeftInvader = invMove.getMaxLeftInvader();
 		maxRightInvader = invMove.getMaxRightInvader();
+
+		//if they both still exist, mvoe
 		if(maxLeftInvader != null && maxRightInvader != null){
 			movement();
 		}
 	}
 
-	void movement(){
+	//handles changing direction
+	private void movement(){
+		//if the man has reached the max invader on the left or right, change direction
 		if(movingLeft){
 			if (transform.position.x < maxLeftInvader.transform.position.x){
 				movingLeft = false;
@@ -32,10 +42,13 @@ public class ManMovement : MonoBehaviour {
 				movingLeft = true;
 			}
 		}
+		//otherwise, continue to move in that direction
 		move();
 	}
 
-	void move(){
+	//moves the man
+	private void move(){
+		//moves the man left or right.
 		Vector3 tempPos = transform.position; 
 		if(movingLeft){
 			tempPos.x -= 0.1f;

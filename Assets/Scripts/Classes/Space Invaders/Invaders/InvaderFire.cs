@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//This class handles invader's firing.
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -10,21 +11,15 @@ public class InvaderFire : MonoBehaviour {
 
 
 
-	// Use this for initialization
+	// Used for initialisation and starting randomFire()
 	void Start () {
 		f = gameObject.GetComponent("FireLaser") as FireLaser;
 		invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
 		StartCoroutine(randomFire());
 	}
 
-	/*
-	// Update is called once per frame
-	void Update () {
-		randomFire();
-	}*/
-
-
-
+	//tells the invader to randomly fire every 0.5 seconds.
+	//The rate of fire increases, depending on the number of invaders left
 	IEnumerator randomFire(){
 
 		while(true){
@@ -40,10 +35,11 @@ public class InvaderFire : MonoBehaviour {
 	void OnDestroy(){
 		InvaderSetUp invSet;
 		try{
+			//when an invader is destroyed, remove one from the total number of invaders
 			invSet = GameObject.Find("Space Invader Start").GetComponent("InvaderSetUp") as InvaderSetUp;
 			invSet.setNoOfInvaders(-1);
 		}catch(NullReferenceException ex){
-
+			//used to avoid initial errors
 		}
 	}
 

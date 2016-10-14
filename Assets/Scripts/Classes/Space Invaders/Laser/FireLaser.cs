@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//This class fires a laser
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -36,14 +37,18 @@ public class FireLaser : MonoBehaviour {
 		laserType.setTypeOfLaser(getLaserType());
 		ls.setLaserType(laserType.getTypeOfLaser());
 		try{
+			//play laser fire sound
 			audioS.PlayOneShot(fireFX, 0.3F);
 		}catch(NullReferenceException e){
+			//catches a null exception
 			Debug.Log ("This would have errored");
 		}
 		ls.startMoving();
 	
 	}
 
+
+	//finds the type of laser
 	private LaserType getLaserType(){
 		if(gameObject.name==("Player")){
 			return LaserType.Player;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//this class destroys objects that fall below the floor.
 public class OutsideBorder : MonoBehaviour {
 
 	// Use this for initialization

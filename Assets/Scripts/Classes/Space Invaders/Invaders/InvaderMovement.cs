@@ -1,3 +1,4 @@
+//This class handles every Invader's movement.
 using UnityEngine;
 using System.Collections;
 
@@ -274,7 +275,7 @@ public class InvaderMovement : MonoBehaviour
 	private void setNoOfRowsMoved(int newColumn){
 		numberOfRowsMoved += newColumn;
 	}
-
+	
 	private void changeSprites(int i, int j){
 		if(invaders[i,j] != null){
 			invAnim = invaders [i, j].GetComponent("InvaderAnimation") as InvaderAnimation;

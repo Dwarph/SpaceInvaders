@@ -32,9 +32,10 @@ public class InvaderSetUp : MonoBehaviour
 
 	}
 
-
-
+	//called every frame
 	void Update(){
+
+		//if the man dies, destroy all invaders
 		manHPLeft = manHP.GetMaxHP();
 		if(manHPLeft == 0){
 			StartCoroutine(wait.waitFor(0.1F));
@@ -53,7 +54,7 @@ public class InvaderSetUp : MonoBehaviour
 		for (int i = 0; i< numberOfInvadersCol; i++) {
 	
 			for (int j = 0; j< numberOfInvadersRow; j++) {
-				//add an invader
+				//add the right invader
 				Debug.Log(""+i);
 				switch(i){
 					case 0:
@@ -85,7 +86,10 @@ public class InvaderSetUp : MonoBehaviour
 	}
 
 
+	//destroys all active invaders
 	public void destroyAllInvaders(bool playerDeath, bool playerWin){
+
+		//gets rid of all invader lasers
 		GameObject[] lasers = GameObject.FindGameObjectsWithTag("Laser");
 		foreach (GameObject laser in lasers){
 			Destroy(laser);
@@ -93,10 +97,12 @@ public class InvaderSetUp : MonoBehaviour
 
 		lasers = GameObject.FindGameObjectsWithTag("ManLaser");
 
+		//gets rid of all "man" lasers
 		foreach (GameObject laser in lasers){
 			Destroy(laser);
 		}
 
+		//destroys all invaders 
 		HasScore h;
 		for (int i = 0; i< numberOfInvadersCol; i++) {
 			
@@ -111,12 +117,16 @@ public class InvaderSetUp : MonoBehaviour
 			}
 		}
 
+		//set gameOver state as true
 		gameOver.isGameOver(true, playerDeath, playerWin);
 	}
+
+	//Returns number of invaders
 	public int getNoOfInvaders(){
 		return noOfInvaders;
 	}
 
+	//add to the number of invaders
 	public void setNoOfInvaders(int invaderNew){
 		noOfInvaders += invaderNew;
 

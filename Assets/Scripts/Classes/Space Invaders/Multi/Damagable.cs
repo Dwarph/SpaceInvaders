@@ -50,31 +50,38 @@ public class Damagable : MonoBehaviour
 
 			TypeOfLaser typeOfLaser = other.GetComponent("TypeOfLaser") as TypeOfLaser;
 
+			//if a player or invader has been hit
 			if(gameObject.name.StartsWith("Invader") || gameObject.name.Equals("Player")){
-				
+
+				//if it has been hit by the opposite laser
 				if(typeOfLaser.getTypeOfLaser() != LaserType.Invader && typeOfLaser.getTypeOfLaser() != LaserType.Player ){
+					//take damage
 					damage = other.gameObject.GetComponent ("Damage") as Damage;
 					Debug.Log(gameObject.name + "has been hit by a laser of type " + typeOfLaser.getTypeOfLaser().ToString());
 					takeDamage (damage.getDamage ());
 				}
 			}
 			else if(gameObject.name.Equals("man")){
-
+				//if the man gets hit
 				if(typeOfLaser.getTypeOfLaser() != LaserType.Man){
 
 					damage = other.gameObject.GetComponent ("Damage") as Damage;
+					//play audio
 					audioS.PlayOneShot(deadFX, 0.35F);
+					//take damage
 					takeDamage (damage.getDamage ());
+					//destroy laser
 					Destroy(other.gameObject);
-
+					//pause the game for a second
 					StartCoroutine(pause.Pause(1, true));
 
 				}
 			}else{
+				//otherwise, take damage.
 				damage = other.gameObject.GetComponent ("Damage") as Damage;
 				takeDamage (damage.getDamage ());
 			}
-			//take away the laser's damage from the building's health
+		
 						
 		}
 	}

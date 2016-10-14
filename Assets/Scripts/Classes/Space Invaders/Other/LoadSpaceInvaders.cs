@@ -1,12 +1,10 @@
-﻿using UnityEngine;
+﻿//This class handles the loading of space invaders
+//If I ever redid space invaders, I would want to create a master class that holds all functions like this 
+using UnityEngine;
 using System.Collections;
 
 public class LoadSpaceInvaders : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {

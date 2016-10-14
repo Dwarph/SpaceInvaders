@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+﻿//this class sets the movement of a laser
+using UnityEngine;
 using System.Collections;
 
-//this class sets the movement of a laser
 public class LaserMovement : MonoBehaviour
 {
 	//the speed of the laser
@@ -10,12 +10,13 @@ public class LaserMovement : MonoBehaviour
 	private ManFire manFire;
 	private LaserType laserType;
 
-
+	//make sure that invader lasers and man lasers ignore collisions
+	//future idea would be for them to destroy each other when they hit
 	void Start(){
 		IgnoreLaserCollisions();
-
 	}
 
+	//make invader lasers and man lasers ignore collisions
 	private void IgnoreLaserCollisions(){
 		if(gameObject.name.StartsWith("Laser")){
 			GameObject playerLaser = GameObject.FindGameObjectWithTag("ManLaser");
@@ -25,20 +26,21 @@ public class LaserMovement : MonoBehaviour
 		}
 	}
 
+	//this is called whenever a laser is spawned
+	//it sends it flying up or down, depending on the laser type
 	public void startMoving(){
 
 		//as soon as the laser is spawned, send it flying
 		//pew pew pew!
 
 		if(laserType == LaserType.Man){
-		
 			this.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * manSpeed);
 		}else{
-		
 			this.GetComponent<Rigidbody2D> ().AddForce (Vector2.down * invaderSpeed);
 		}
 	}
 
+	//just in case, ignore more stuff
 	private void OnTriggerEnter2D (Collider2D collision)
 	{
 		if(collision.gameObject.name.Equals("man") && laserType == LaserType.Man){
@@ -66,6 +68,7 @@ public class LaserMovement : MonoBehaviour
 		}
 	}
 
+	//sets the laser type
 	public void setLaserType(LaserType newType){
 		laserType = newType;
 	}
