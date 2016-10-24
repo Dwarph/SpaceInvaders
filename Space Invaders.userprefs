@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Classes\Space Invaders\Man\StopMan.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderFire.cs">
     <Files>
-      <File FileName="Assets\Scripts\Classes\Space Invaders\UI\GameOver.cs" Line="1" Column="1" />
-      <File FileName="f:\Users\Tiny Theodore\Documents\1Pip\Unity\Repository\Space Invaders\Assets\Scripts\Classes\Space Invaders\Invaders\InvaderSetUp.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Other\WaitForTime.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Classes\Space Invaders\Man\StopMan.cs" Line="42" Column="5" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderFire.cs" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\UI\KilledText.cs" Line="45" Column="51" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Invaders\InvaderAnimation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Laser\LaserMovement.cs" Line="31" Column="25" />
+      <File FileName="Assets\Scripts\Classes\Space Invaders\Laser\FireLaser.cs" Line="19" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

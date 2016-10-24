@@ -71,7 +71,9 @@
      <Compile Include="Assets\Scripts\Classes\Space Invaders\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\GameOver.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\HasScore.cs" />
+     <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\KilledText.cs" />
      <Compile Include="Assets\Scripts\Classes\Space Invaders\UI\Score.cs" />
+     <None Include="Assets\Text Files\names.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

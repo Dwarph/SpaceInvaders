@@ -55,7 +55,6 @@ public class InvaderSetUp : MonoBehaviour
 	
 			for (int j = 0; j< numberOfInvadersRow; j++) {
 				//add the right invader
-				Debug.Log(""+i);
 				switch(i){
 					case 0:
 						invader = Instantiate (invaderPrefabs [2], tempPos, transform.rotation) as GameObject;

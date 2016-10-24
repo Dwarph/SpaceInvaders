@@ -1,0 +1,83 @@
+﻿#pragma once
+#include <stdint.h>
+#include <assert.h>
+#include <exception>
+#include "codegen/il2cpp-codegen.h"
+
+struct t106;
+struct t107;
+struct t108;
+struct t109;
+struct t110;
+struct t111;
+struct t112;
+struct t113;
+struct t114;
+struct t115;
+struct t116;
+struct t117;
+struct t118;
+struct t119;
+struct t120;
+struct t121;
+struct t122;
+struct t123;
+struct t303;
+struct t97;
+struct t304;
+struct t305;
+struct t306;
+struct t307;
+struct t308;
+struct t309;
+struct t310;
+struct t311;
+struct t312;
+struct t313;
+struct t314;
+struct t315;
+struct t316;
+struct t317;
+struct t318;
+struct t319;
+struct t13;
+struct t320;
+struct t321;
+
+extern "C" void m306 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m307 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m308 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m309 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m310 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m311 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m312 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m313 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m314 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m315 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m316 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m317 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m318 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m319 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m320 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m321 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m322 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m323 (t7 * __this , t7 * p0, t97 * p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t107 * m324 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t108 * m325 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t109 * m326 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t110 * m327 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t111 * m328 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t112 * m329 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t113 * m330 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t114 * m331 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t115 * m332 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t116 * m333 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t117 * m334 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t118 * m335 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t119 * m336 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t120 * m337 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t121 * m338 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t122 * m339 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" t123 * m340 (t7 * __this , const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m341 (t7 * __this , t13 * p0, t7* p1, const MethodInfo* method) IL2CPP_METHOD_ATTR;
+extern "C" void m342 (t7 * __this , t321 * p0, const MethodInfo* method) IL2CPP_METHOD_ATTR;

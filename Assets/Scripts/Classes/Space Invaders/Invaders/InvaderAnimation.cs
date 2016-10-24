@@ -12,11 +12,13 @@ public class InvaderAnimation : MonoBehaviour {
 	public Sprite[] sprites;
 	private SpriteRenderer spriteRend;
 	private bool open;
+	private KilledText kt;
 
 	// Used for initialisation.
 	void Start () {
 		spriteRend = GetComponent<SpriteRenderer>();
 		open = false;
+		kt = GameObject.Find("Killed Name").GetComponent("KilledText") as KilledText;
 	}
 	
 	// Update is called once per frame
@@ -37,5 +39,10 @@ public class InvaderAnimation : MonoBehaviour {
 			spriteRend.sprite = sprites[1];
 		}
 
+	}
+
+	void OnDestroy(){
+		//display a name + family members
+		kt.killInvader();
 	}
 }
